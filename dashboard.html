@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .chart-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .chart-column {
+      flex: 1;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-right: 20px;
+
+    }
+
+    canvas {
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .back-button {
+      margin-top: 0px;
+      text-align: center;
+      height: 20px;
+      width: 20px;
+    }
+    .colorful-button{
+        background-color: #5343c7;
+         margin-bottom: 20px;
+         color: #fff;
+         border-color: #5343c7;
+
+    }
+  </style>
+</head>
+<body>
+    <div class="back-button">
+        <button class="colorful-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+  <div class="container">
+    
+   
+    <div class="chart-row">
+      <div class="chart-column">
+        <h2>Pie Chart 1</h2>
+        <canvas id="pieChart1" width="350" height="350"></canvas>
+      </div>
+      <div class="chart-column">
+        <h2>Pie Chart 2</h2>
+        <canvas id="pieChart2" width="350" height="350"></canvas>
+      </div>
+      <div class="chart-column">
+        <h2>Pie Chart 3</h2>
+        <canvas id="pieChart3" width="350" height="30"></canvas>
+      </div>
+    </div>
+    <div class="chart-row">
+      <div class="chart-column">
+        <h2>Bar Chart 1</h2>
+        <canvas id="barChart1" width="400" height="200"></canvas>
+      </div>
+      <div class="chart-column">
+        <h2>Bar Chart 2</h2>
+        <canvas id="barChart2" width="400" height="200"></canvas>
+      </div>
+    </div>
+    
+  </div>
+
+  <script>
+    // Data for the pie charts
+    const pieLabels1 = ['2A Frame', '2B Upper Floors', '2C Roof', '2D Stairs', '2E External Walls', '2F External Windows and Doors', '2G Internal Walls and Partitions', '2H Internal Doors'];
+    const pieValues1 = [376, 5393, 6187, 1881, 4933, 3344, 5978, 836];
+    const pieLabels2 = ['3A Wall Finishes', '3B Floor Finishes', '3C Ceiling Finishes'];
+    const pieValues2 = [5978, 3554, 1296];
+    const pieLabels3 = ['4 Fittings and Furnishings', '5A Sanitary Appliances ', '5B Services Equipment', '5C Disposal Installations', '5D Water Installations','5E Heat Source','5F Space Heating and Air Conditioning ','5G Ventilating Systems','5H Electrical Installations','5I Fuel Installations','5J Lift and Conveyor Installations','5K Fire and Lightning Protection','5L Communications and Security Installations','5M Special Installations','5N Builders Work in Connection','5O Management of the Commissioning of Services'];
+    const pieValues3 = [2229,1171,0,0,0,0,10953,5017,2717,0,0,0,0,0,2508,0];
+
+    // Data for the bar charts
+    const barLabels1 = ['6A Site Works', '6B Drainage', '6C External Services', '6D Minor Building Works', '6E Demolition and Work Outside the Site'];
+    const barValues1 = [6689, 2592, 4933, 502, 962];
+    const barLabels2 = ['7 Preliminaries ', '8 Contingencies'];
+    const barValues2 = [0,2090];
+
+    // Creating pie charts
+    new Chart(document.getElementById('pieChart1'), {
+      type: 'pie',
+      data: {
+        labels: pieLabels1,
+        datasets: [{
+          data: pieValues1,
+          backgroundColor: ['#ff6666', '#ffb366', '#ffd966', '#66cc66', '#66b3ff', '#6666ff', '#cc66ff', '#ff66b3']
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          position: 'right',
+          align: 'start',
+          labels: {
+            boxWidth: 20
+          }
+        }
+      }
+    });
+    new Chart(document.getElementById('pieChart2'), {
+      type: 'pie',
+      data: {
+        labels: pieLabels2,
+        datasets: [{
+          data: pieValues2,
+          backgroundColor: ['#ff6666', '#ffb366', '#ffd966']
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          position: 'right',
+          align: 'start',
+          labels: {
+            boxWidth: 20
+          }
+        }
+      }
+    });
+    new Chart(document.getElementById('pieChart3'), {
+      type: 'pie',
+      data: {
+        labels: pieLabels3,
+        datasets: [{
+          data: pieValues3,
+          backgroundColor: ['#ff6666', '#ffb366', '#ffd966','#66cc66', '#66b3ff', '#6666ff', '#cc66ff', '#ff66b3', '#ff9966', '#66ff66', '#66b3ff', '#ff66ff', '#6666ff', '#6666ff', '#ffcc66', '#66ff66']
+        }]
+      },
+      options: {
+        legend: {
+          display: true,
+          position: 'right',
+          align: 'start',
+          labels: {
+            boxWidth: 20
+          }
+        }
+      }
+    });
+
+    // Creating bar charts
+    new Chart(document.getElementById('barChart1'), {
+      type: 'bar',
+      data: {
+        labels: barLabels1,
+        datasets: [{
+          label: 'Data',
+          data: barValues1,
+          backgroundColor: '#36a2eb'
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+    new Chart(document.getElementById('barChart2'), {
+      type: 'bar',
+      data: {
+        labels: barLabels2,
+        datasets: [{
+          label: 'Data',
+          data: barValues2,
+          backgroundColor: '#ff6666'
+        }]
+      },
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+    // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

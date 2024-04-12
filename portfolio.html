@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 999px;
+            height: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 0px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .image-card {
+            width: 100%; /* Single image per row */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            padding: 10px;
+            background-color: #f3f3f3;
+        }
+
+        .image-caption h3 {
+            margin-top: 0;
+        }
+        .back-button {
+      margin-top: 10px;
+      text-align: center;
+      height: 20px;
+      width: 20px;
+    }
+    .colorful-button{
+        background-color: #5343c7;
+         margin-bottom: 20px;
+         color: #fff;
+         border-color: #5343c7;
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="back-button">
+        <button class="colorful-button" onclick="goBack()"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+    <div class="container">
+        <h1>Bradfield School New Library Block</h1>
+        <div class="image-gallery">
+            <div class="image-card">
+                <img src="images/1.PNG" alt="Image 1">
+                <div class="image-caption">
+                    <h3>Image of classroom,Library and IT Suites</h3>
+                    <p>
+                        This image shows the library block view from the front.
+                    </p>
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="images/2.PNG" alt="Image 2">
+                <div class="image-caption">
+                    <h3>Image of IT Suites</h3>
+                    <p>The IT suites were equipped with a sturdy network backbone, server rooms, and data storage facilities to ensure fast internet connectivity and dependable access to digital resources </p>
+                </div>
+            </div>
+            <!-- Add more image cards -->
+            <div class="image-card">
+                <img src="images/3.PNG" alt="Image 3">
+                <div class="image-caption">
+                    <h3>Location of Bradfields School Library</h3>
+                    <p>This image shows the location of the library where exactly in the school campus</p>
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="images\5 (2) (1).PNG" alt="Image 4">
+                <div class="image-caption">
+                    <h3>Image of Library</h3>
+                    <p>The library room was specifically constructed to allow a range of activities, including solitary study, group talks, and research.</p>
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="images\Capture (1).PNG" alt="Image 5">
+                <div class="image-caption">
+                    <h3>Architectural View of the New Library Block</h3>
+                    <p>The building envelope was optimized for energy efficiency and thermal comfort by incorporating passive design principles such as orientation, shading, and natural ventilation.</p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <script>
+         // Function to go back to the previous page
+    function goBack() {
+      window.history.back();
+    }
+    </script>
+</body>
+</html>
